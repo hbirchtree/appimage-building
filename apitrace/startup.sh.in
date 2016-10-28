@@ -1,0 +1,13 @@
+#!/bin/sh
+
+# Set up environment
+export PATH=$APPDIR/bin:$PATH
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$APPDIR/lib
+export XDG_DATA_HOME=$APPDIR/share
+export XDG_DATA_DIRS=$XDG_DATA_DIRS:$APPDIR/share
+
+# Coffee-specific
+export COFFEE_NO_PROFILER_EXPORT="1"
+
+# Executing application
+exec "$APPDIR/@APPIMAGE_EXEC@" $@
